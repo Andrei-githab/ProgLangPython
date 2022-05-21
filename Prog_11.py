@@ -61,15 +61,15 @@ def getAuthorization():
         messagebox.showerror("ERROR", "Что то пошло не так :(")
 
 
-root = Tk()
-root.title("")
-w = root.winfo_screenwidth()
-h = root.winfo_screenheight()
-w = w//2
-h = h//2
+root_window = Tk()
+root_window.title("")
+window_w = root_window.winfo_screenwidth()
+window_h = root_window.winfo_screenheight()
+w = window_w//2
+h = window_h//2
 w = w - 200
 h = h - 200
-root.geometry('450x300+{}+{}'.format(w, h))
+root_window.geometry('450x300+{}+{}'.format(w, h))
 
 login = StringVar()
 password = StringVar()
@@ -93,4 +93,4 @@ btn_authorization = Button(text="Авторизация", background="dark slate
                            pady="8", font="16", command=getAuthorization)
 btn_authorization.place(x=230, y=200)
 
-root.mainloop()
+root_window.mainloop()
