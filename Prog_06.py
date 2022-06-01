@@ -15,7 +15,7 @@ def getFibonacci(ceslofib):
     return ceslofib
 
 
-print("############ Число Фибоначчи ############\n")
+print("############ Число Фибоначчи? ############\n")
 print("Текущие параметры лимита глубины рекурсии:", end=' ')
 print(sys.getrecursionlimit())
 element = int(input('Введите номер искомого элемента: '))
