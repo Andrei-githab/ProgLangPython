@@ -133,4 +133,4 @@ while running:
         elif commonda == 0:
             break
         else:
-            print("Hет такой команды")
+            print("Hет такой команды!")
