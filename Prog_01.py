@@ -55,12 +55,12 @@ else:
 if pramul_x1 <= x <= pramul_x2 and pramul_y1 <= y <= pramul_y2 and pramul_x3 <= x <= pramul_x4 and pramul_y3 <= y <= pramul_y4:
     print("Точка принадлежит прямоугольнику")
 else:
-    print("Точка НЕ принадлежит прямоугольнику")
+    print("Точка НЕ! принадлежит прямоугольнику")
 
 
 if (x - circle_x) ** 2 + (y - circle_y) ** 2 < circle_rad ** 2:
     print("Точка принадлежит кругу")
 elif (x - circle_x) ** 2 + (y - circle_y) ** 2 > circle_rad ** 2:
-    print("Точка НЕ принадлежит кругу")
+    print("Точка НЕ! принадлежит кругу")
 else:
     print("Точка на круге")
