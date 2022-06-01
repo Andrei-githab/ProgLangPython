@@ -39,7 +39,7 @@ letterCountFrequency = str(getLetterCountFrequency(data))
 kolLines = str(len(open("input_04.txt").readlines()))
 dataFile.close()
 infoData = open("output_04.txt", "w", encoding="utf-8")
-infoStr = "Что в файле: \n\nДлина файла: " + lenInput + "\nКоличесчтво глассных: " + kolGlas + "\nЧасто употребляемая буква: " + letterCountFrequency + "\nКоличество строчек: " + kolLines
+infoStr = "Что в файле:\n\nДлина файла: " + lenInput + "\nКоличесчтво глассных: " + kolGlas + "\nЧасто употребляемая буква: " + letterCountFrequency + "\nКоличество строчек: " + kolLines
 infoData.write(infoStr)
 print(infoStr)
 infoData.close()
