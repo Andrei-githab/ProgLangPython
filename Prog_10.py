@@ -2,19 +2,22 @@ import datetime
 
 
 class Loger:
-    def __init__(self, x):
-        self.x = x
 
-    def startl(self):
-        now = datetime.datetime.now()
-        print("<Запуск программы>[{}]/[{}]/[{}]/[{}:{}]".format(now.day, now.month, now.year, now.hour, now.minute))
+    def __init__(self):
+        pass
 
-    def X_peremeshchenie(self):
-        now = datetime.datetime.now()
-        print("<Запуск программы>[{}]/[{}]/[{}]/[{}:{}]".format(now.day, now.month, now.year, now.hour, now.minute))
-        return
+    def Start(self, message):
+        print("Начало сеанса:" + message)
+
+    def Coordinates(self):
+        print("Coordinates:")
+
+    def CoordiChangedCircle(self, x, y):
+        print("Координаты изменены / окружность / " + "x = " + x + " y = " + y)
 
 
-startloger = Loger()
-startloger.startl()
-startloger.X_peremeshchenie()
+now = datetime.datetime.now()
+log = Loger()
+log.Start(now.strftime("%d-%m-%Y %H:%M"))
+log.Coordinates()
+log.CoordiChangedCircle("4", "6")
