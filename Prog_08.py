@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import numpy as np
 
+
 s = []
 plt.figure(figsize=(8, 8))
 plt.gca().spines['left'].set_position('center')
@@ -36,10 +37,11 @@ try:
         for row in file:
             digit = row.split()
             s.append(digit)
-        strkor = "Текущие координаты:\nлиния: " + s[0][0] + s[0][1] + s[0][2] + s[0][3] + "\nпрямоугольник: " + \
-                 s[1][0] + s[1][1] + s[1][2] + s[1][3] + "\nокружность: " + s[2][0] + s[2][1] + " r = " + s[2][2] + \
-                 "\nточка: " + s[3][0] + s[3][1] + " "
-        plt.text(-7, 7, strkor,
+        strkor = "Текущие координаты:\nлиния: X1: " + s[0][0] + " Y1: " + s[0][1] + " X2: " + s[0][2] + " Y2: " + \
+                 s[0][3] + "\nпрямоугольник: X1: " + s[1][0] + "Y1: " + s[1][1] + " X2: " + s[1][2] + " Y2: " + \
+                 s[1][3] + "\nокружность: X: " + s[2][0] + " Y: " + s[2][1] + " R: " + s[2][2] + "\nточка: X: " + \
+                 s[3][0] + " Y: " + s[3][1] + ""
+        plt.text(-9, 8, strkor,
                  bbox={"facecolor": "yellow",
                        "boxstyle": "sawtooth",
                        "edgecolor": "red"})
@@ -57,8 +59,8 @@ x_cer, y_cer, r_cer = float(s[2][0]), float(s[2][1]), float(s[2][2])
 x_toh, y_toh = float(s[3][0]), float(s[3][1])
 
 
-plt.text(7, 0, "X", fontsize=15)
-plt.text(0, 7, "Y", fontsize=15)
+plt.text(9, 0, "X", fontsize=15)
+plt.text(0, 9, "Y", fontsize=15)
 plt.xlim(
     min(x_l, x_ll, x_rec, x_recc, x_cer - r_cer, x_toh, y_l, y_ll, y_rec, y_recc, y_cer - r_cer, y_toh, -x_l, -x_ll,
         -x_rec, -x_recc, -(x_cer - r_cer), -x_toh, -y_l, -y_ll, -y_rec, -y_recc, -(y_cer - r_cer), -y_toh,
@@ -209,7 +211,9 @@ line(x, y)
 
 x = [min(x_rec, x_recc), min(y_rec, y_recc)]
 rectangle(x, l_tangle, d_tangle)
+
 x = [x_cer, y_cer]
 circle(x, r_cer)
+
 plt.gca().scatter(x_toh, y_toh)
 plt.show()
