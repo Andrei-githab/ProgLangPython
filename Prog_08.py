@@ -13,9 +13,7 @@ plt.gca().spines['left'].set_position('center')
 plt.gca().spines['bottom'].set_position('center')
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
-plt.grid()
-plt.xlabel("X")
-plt.ylabel("Y")
+plt.grid(linestyle='--')
 
 
 def line(x1_line, x2_line):
@@ -52,7 +50,8 @@ x_cer, y_cer, r_cer = float(s[2][0]), float(s[2][1]), float(s[2][2])
 x_toh, y_toh = float(s[3][0]), float(s[3][1])
 
 
-plt.text(7, 7, "HELLO!", fontsize=15)
+plt.text(7, 0, "X", fontsize=15)
+plt.text(0, 7, "Y", fontsize=15)
 plt.xlim(
     min(x_l, x_ll, x_rec, x_recc, x_cer - r_cer, x_toh, y_l, y_ll, y_rec, y_recc, y_cer - r_cer, y_toh, -x_l, -x_ll,
         -x_rec, -x_recc, -(x_cer - r_cer), -x_toh, -y_l, -y_ll, -y_rec, -y_recc, -(y_cer - r_cer), -y_toh,
