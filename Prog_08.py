@@ -1,12 +1,13 @@
 """
-Лабораторная работа 8 
-Написать программу попадания точки в области 
+Лабораторная работа 8
+Написать программу попадания точки в области
 (визуализированный вариант)
 """
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 import numpy as np
 
+s = []
 plt.figure(figsize=(8, 8))
 plt.gca().spines['left'].set_position('center')
 plt.gca().spines['bottom'].set_position('center')
@@ -28,10 +29,25 @@ def circle(x_circle, r_circle):
     plt.gca().add_patch(circle1)
 
 
-x_l, y_l, x_ll, y_ll = map(int, input().split())
-x_rec, y_rec, x_recc, y_recc = map(int, input().split())
-x_cer, y_cer, r_cer = map(int, input().split())
-x_toh, y_toh = map(int, input().split())
+try:
+    file = open("input_08.txt", "r")
+    try:
+        for row in file:
+            digit = row.split()
+            s.append(digit)
+        print(s)
+    except Exception as e:
+        print(e)
+    finally:
+        file.close()
+except Exception as ex:
+    print(ex)
+
+
+x_l, y_l, x_ll, y_ll = float(s[0][0]), float(s[0][1]), float(s[0][2]), float(s[0][3])
+x_rec, y_rec, x_recc, y_recc = float(s[1][0]), float(s[1][1]), float(s[1][2]), float(s[1][3])
+x_cer, y_cer, r_cer = float(s[2][0]), float(s[2][1]), float(s[2][2])
+x_toh, y_toh = float(s[3][0]), float(s[3][1])
 plt.xlim(
     min(x_l, x_ll, x_rec, x_recc, x_cer - r_cer, x_toh, y_l, y_ll, y_rec, y_recc, y_cer - r_cer, y_toh, -x_l, -x_ll,
         -x_rec, -x_recc, -(x_cer - r_cer), -x_toh, -y_l, -y_ll, -y_rec, -y_recc, -(y_cer - r_cer), -y_toh,
@@ -157,13 +173,13 @@ def print_line():
 def print_recctangle():
     if (min(x_rec, x_recc) <= x_toh <= max(x_rec, x_recc)) and (min(y_rec, y_recc) <= y_toh <= max(y_rec, y_recc)):
 
-        plt.gca().add_patch(Rectangle((-10000, max(y_rec, y_recc)), 20000, 20000, facecolor="w", color="r"))
-        plt.gca().add_patch(Rectangle((-10000, max(y_rec, y_recc)), min(x_rec, x_recc) + 10000, -20000, facecolor="w", color="r"))
-        plt.gca().add_patch(Rectangle((max(x_rec, x_recc), max(y_rec, y_recc)), 20000, -20000, facecolor="w", color="r"))
-        plt.gca().add_patch(Rectangle((min(x_rec, x_recc), min(y_rec, y_recc)), 20000, -20000, facecolor="w", color="r"))
+        plt.gca().add_patch(Rectangle((-10000, max(y_rec, y_recc)), 20000, 20000, facecolor="w"))
+        plt.gca().add_patch(Rectangle((-10000, max(y_rec, y_recc)), min(x_rec, x_recc) + 10000, -20000, facecolor="w"))
+        plt.gca().add_patch(Rectangle((max(x_rec, x_recc), max(y_rec, y_recc)), 20000, -20000, facecolor="w"))
+        plt.gca().add_patch(Rectangle((min(x_rec, x_recc), min(y_rec, y_recc)), 20000, -20000, facecolor="w"))
         print(1)
     else:
-        plt.gca().add_patch(Rectangle(([min(x_rec, x_recc), min(y_rec, y_recc)]), l_tangle, d_tangle, facecolor="w", color="r"))
+        plt.gca().add_patch(Rectangle(([min(x_rec, x_recc), min(y_rec, y_recc)]), l_tangle, d_tangle, facecolor="w"))
         print(2)
 
 
