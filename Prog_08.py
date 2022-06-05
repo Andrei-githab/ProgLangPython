@@ -13,6 +13,9 @@ plt.gca().spines['left'].set_position('center')
 plt.gca().spines['bottom'].set_position('center')
 plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
+plt.grid()
+plt.xlabel("X")
+plt.ylabel("Y")
 
 
 def line(x1_line, x2_line):
@@ -35,7 +38,6 @@ try:
         for row in file:
             digit = row.split()
             s.append(digit)
-        print(s)
     except Exception as e:
         print(e)
     finally:
@@ -48,6 +50,9 @@ x_l, y_l, x_ll, y_ll = float(s[0][0]), float(s[0][1]), float(s[0][2]), float(s[0
 x_rec, y_rec, x_recc, y_recc = float(s[1][0]), float(s[1][1]), float(s[1][2]), float(s[1][3])
 x_cer, y_cer, r_cer = float(s[2][0]), float(s[2][1]), float(s[2][2])
 x_toh, y_toh = float(s[3][0]), float(s[3][1])
+
+
+plt.text(7, 7, "HELLO!", fontsize=15)
 plt.xlim(
     min(x_l, x_ll, x_rec, x_recc, x_cer - r_cer, x_toh, y_l, y_ll, y_rec, y_recc, y_cer - r_cer, y_toh, -x_l, -x_ll,
         -x_rec, -x_recc, -(x_cer - r_cer), -x_toh, -y_l, -y_ll, -y_rec, -y_recc, -(y_cer - r_cer), -y_toh,
